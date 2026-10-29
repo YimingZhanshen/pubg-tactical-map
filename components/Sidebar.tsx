@@ -166,7 +166,7 @@ export function Sidebar({
 
       <div className="border-t border-[var(--stroke)] px-4 py-2">
         <a
-          href="/guide/"
+          href="/guide.html"
           target="_blank"
           rel="noopener"
           className="flex items-center justify-between text-[11px] text-[var(--muted)] transition-colors hover:text-[var(--accent)]"

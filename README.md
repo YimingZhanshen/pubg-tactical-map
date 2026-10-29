@@ -99,10 +99,10 @@ public/          图标、生成的瓦片
 
 ## SEO / 分享
 
-- `public/guide/`：静态使用说明与 FAQ 页（含 FAQPage / Breadcrumb 结构化数据），从侧栏底部进入。
+- `public/guide.html`：静态使用说明与 FAQ 页（含 FAQPage / Breadcrumb 结构化数据），从侧栏底部进入。
 - `public/robots.txt`、`public/sitemap.xml`、`public/llms.txt`、`public/og-cover.jpg`：抓取与分享元数据。
 - `index.html` 内含 WebApplication 结构化数据与 Open Graph / Twitter 卡片。
-- 更换域名时，需要同步替换 `index.html`、`public/guide/index.html`、`public/robots.txt`、`public/sitemap.xml`、`public/llms.txt` 里的绝对地址。
+- 更换域名时，需要同步替换 `index.html`、`public/guide.html`、`public/robots.txt`、`public/sitemap.xml`、`public/llms.txt` 里的绝对地址。
 
 ## 数据来源与免责声明
 
