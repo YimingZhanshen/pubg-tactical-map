@@ -77,16 +77,25 @@ dev/             瓦片与点位生成脚本
 public/          图标、生成的瓦片
 ```
 
-## 部署到 Cloudflare Pages
+## 部署到 Cloudflare
 
-连接本仓库后使用以下设置即可：
+`npm run build` 会把 `public/`（含瓦片）复制进 `dist/`，Cloudflare 可以直接构建。
+
+**Cloudflare Pages**（Connect to Git）：
 
 - Framework preset: `Vite`
 - Build command: `npm run build`
 - Build output directory: `dist`
 - 环境变量：`NODE_VERSION=22.13.0`（或 24.x）
 
-`npm run build` 会把 `public/`（含瓦片）复制进 `dist/`，无需额外步骤。
+**Cloudflare Workers**（Workers Builds，仓库已含 `wrangler.jsonc`）：
+
+- 构建命令：`npm run build`
+- 部署命令：`npx wrangler deploy`
+- 预览命令：`npx wrangler versions upload`
+- 环境变量：`NODE_VERSION=22.13.0`（或 24.x）
+
+`wrangler.jsonc` 以 assets 模式把 `dist/` 作为静态资源上传，无需 Worker 入口代码。
 
 ## 数据来源与免责声明
 
