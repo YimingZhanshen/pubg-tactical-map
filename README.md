@@ -29,13 +29,13 @@ React 19 · TypeScript · Vite · Tailwind CSS 4 · Leaflet 1.9
 npm ci
 ```
 
-底图瓦片不随仓库分发（版权原因），首次运行需要生成：
+仓库已包含 `public/tiles/` 下的 z0–z4 瓦片，克隆后可直接构建。需要重新生成（例如地图更新）时：
 
 ```bash
 npm run maps   # 需要 Python 3 + Pillow
 ```
 
-该脚本会从 PUBG 官方 API 资源库下载 8192px 地图原图（约 800 MB），并在 `public/tiles/` 生成 z0–z4 的 256px WebP 瓦片。默认只生成到 z4；如需更深的 z5，可用环境变量：
+该脚本会从 PUBG 官方 API 资源库下载 8192px 地图原图（约 800 MB），重新生成 z0–z4 的 256px WebP 瓦片。默认只生成到 z4；如需更深的 z5：
 
 ```bash
 MAX_ZOOM=5 npm run maps
@@ -77,9 +77,20 @@ dev/             瓦片与点位生成脚本
 public/          图标、生成的瓦片
 ```
 
+## 部署到 Cloudflare Pages
+
+连接本仓库后使用以下设置即可：
+
+- Framework preset: `Vite`
+- Build command: `npm run build`
+- Build output directory: `dist`
+- 环境变量：`NODE_VERSION=22.13.0`（或 24.x）
+
+`npm run build` 会把 `public/`（含瓦片）复制进 `dist/`，无需额外步骤。
+
 ## 数据来源与免责声明
 
-- 底图来自 PUBG 官方 API 资源库 [pubg/api-assets](https://github.com/pubg/api-assets)，版权归 KRAFTON 所有，仓库中不包含这些图片。
+- 底图来自 PUBG 官方 API 资源库 [pubg/api-assets](https://github.com/pubg/api-assets)，版权归 KRAFTON 所有；仓库内 `public/tiles` 是由其生成的瓦片，仅用于非商业粉丝用途，不适用 MIT 许可。
 - 点位数据来自社区标注项目 [ziphow/pubg-map-toolkit](https://github.com/ziphow/pubg-map-toolkit)，为人工标注，可能存在偏差，仅供战术参考。
 - 本项目是非官方粉丝工具，与 KRAFTON 无关联，不用于商业用途。
 

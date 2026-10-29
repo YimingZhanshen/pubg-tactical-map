@@ -1,6 +1,5 @@
 node_modules/
 dist/
-public/tiles/
 dev/data/hires/
 dev/data/align/
 dev/data/probe/
