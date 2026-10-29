@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a0e0c" />
+    <title>PUBG 迫击炮测距与密室点位地图｜使用说明与常见问题</title>
+    <meta
+      name="description"
+      content="PUBG 战术地图使用说明：如何在官方高清地图上两点测距、换算迫击炮表盘读数（121–700m），查看密室、载具、复活站点位与 100m 网格，以及点位精度与数据来源说明。"
+    />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
+    <link rel="canonical" href="https://pubg-tactical-map-tvhfryr314e.qoder.zone/guide/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="PUBG 战术地图" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:title" content="PUBG 迫击炮测距与密室点位地图｜使用说明" />
+    <meta
+      property="og:description"
+      content="两点测距、迫击炮表盘换算、密室与载具点位、100m 网格。包含使用步骤、射程说明与点位精度说明。"
+    />
+    <meta property="og:url" content="https://pubg-tactical-map-tvhfryr314e.qoder.zone/guide/" />
+    <meta property="og:image" content="https://pubg-tactical-map-tvhfryr314e.qoder.zone/og-cover.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PUBG 迫击炮测距与密室点位地图｜使用说明" />
+    <meta name="twitter:description" content="两点测距、迫击炮表盘换算、密室与载具点位、100m 网格。" />
+    <meta name="twitter:image" content="https://pubg-tactical-map-tvhfryr314e.qoder.zone/og-cover.jpg" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "PUBG 迫击炮的最大射程和最小射程是多少？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PUBG 迫击炮的有效水平射程为 121 米至 700 米。低于 121 米或高于 700 米时，地图工具会提示超出射程，需要调整阵地位置。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "迫击炮表盘读数等于地图上的距离吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "在平地上，表盘按米读数，可以近似直接使用地图平面距离。但表盘档位并不连续，约每 10 米一跳；存在高低差时需要手动修正，低打高加档、高打低减档。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "为什么测出来的距离和游戏里感觉不一样？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "工具计算的是地图平面直线距离，不包含地形高低差；另外地图版本、点位标注和点击精度都会带来误差。建议先放大地图再点选 A、B 两点。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "密室和载具点位准确吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "点位来自社区标注数据集，不是官方数据，版本更新后可能有偏差，仅供战术参考。密室数量与位置以当前游戏版本为准。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "萨诺有密室点位吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "萨诺没有密室点位数据，也没有官方密室；地图选择中的萨诺标记为“仅测距”，仍可用于迫击炮和普通距离测量。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "手机上可以使用吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "可以。界面针对移动端做了抽屉式图层面板和底部读数卡；建议双指放大后再点选阵地与目标，以获得更精确的距离。"
+            }
+          }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "PUBG 战术地图",
+            "item": "https://pubg-tactical-map-tvhfryr314e.qoder.zone/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "使用说明与常见问题",
+            "item": "https://pubg-tactical-map-tvhfryr314e.qoder.zone/guide/"
+          }
+        ]
+      }
+    </script>
+    <style>
+      :root {
+        --bg: #0a0e0c;
+        --panel: #101613;
+        --panel-2: #141b17;
+        --stroke: rgba(255, 255, 255, 0.1);
+        --text: #e8ede9;
+        --muted: #93a096;
+        --accent: #f2a900;
+        --accent-soft: rgba(242, 169, 0, 0.12);
+        --hud: "Bahnschrift", "Consolas", "Microsoft YaHei", sans-serif;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Segoe UI", "Microsoft YaHei", system-ui, sans-serif;
+        line-height: 1.75;
+      }
+      a { color: var(--accent); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .wrap { max-width: 880px; margin: 0 auto; padding: 0 22px; }
+      header.site {
+        border-bottom: 1px solid var(--stroke);
+        background: rgba(10, 14, 12, 0.9);
+        position: sticky;
+        top: 0;
+        backdrop-filter: blur(10px);
+        z-index: 5;
+      }
+      .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 58px; }
+      .brand { display: flex; align-items: center; gap: 10px; color: var(--text); font-weight: 700; letter-spacing: 0.04em; }
+      .brand svg { color: var(--accent); }
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 14px;
+        border-radius: 8px;
+        background: var(--accent);
+        color: #0a0d0c;
+        font-weight: 600;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+      .cta:hover { text-decoration: none; filter: brightness(1.05); }
+      .hero { padding: 56px 0 30px; }
+      .kicker { font-family: var(--hud); font-size: 12px; letter-spacing: 0.2em; color: var(--accent); }
+      h1 { font-size: clamp(30px, 5vw, 44px); line-height: 1.25; margin: 12px 0 16px; letter-spacing: -0.01em; }
+      .lead { font-size: 17px; color: var(--muted); max-width: 720px; margin: 0; }
+      .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 28px 0 0; }
+      .stat { border: 1px solid var(--stroke); border-radius: 10px; padding: 12px 14px; background: var(--panel); }
+      .stat b { display: block; font-family: var(--hud); font-size: 24px; color: var(--accent); line-height: 1.2; }
+      .stat span { font-size: 12px; color: var(--muted); }
+      main { padding-bottom: 40px; }
+      section { padding: 26px 0; border-top: 1px solid var(--stroke); }
+      h2 { font-size: 22px; margin: 0 0 12px; }
+      h3 { font-size: 16px; margin: 20px 0 6px; }
+      p { margin: 8px 0; }
+      ul, ol { margin: 8px 0; padding-left: 22px; }
+      li { margin: 5px 0; }
+      .note { border-left: 3px solid var(--accent); background: var(--accent-soft); padding: 10px 14px; border-radius: 0 8px 8px 0; color: #d9e0da; font-size: 14px; }
+      .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+      .card { border: 1px solid var(--stroke); background: var(--panel); border-radius: 10px; padding: 14px 16px; }
+      .card b { color: var(--text); }
+      .card p { color: var(--muted); font-size: 14px; margin: 4px 0 0; }
+      .faq { border: 1px solid var(--stroke); border-radius: 10px; background: var(--panel); padding: 4px 18px; }
+      .faq details { border-bottom: 1px solid var(--stroke); padding: 10px 0; }
+      .faq details:last-child { border-bottom: 0; }
+      .faq summary { cursor: pointer; font-weight: 600; }
+      .faq details p { color: var(--muted); font-size: 14px; }
+      .maps { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 0; padding: 0; list-style: none; }
+      .maps li { border: 1px solid var(--stroke); border-radius: 100px; padding: 3px 11px; font-size: 13px; color: var(--muted); }
+      .maps li.only { border-color: rgba(242, 169, 0, 0.4); color: var(--accent); }
+      footer { border-top: 1px solid var(--stroke); padding: 24px 0 40px; color: var(--muted); font-size: 13px; }
+      footer p { margin: 6px 0; }
+      .small { font-size: 12px; color: #7d8a80; }
+      @media (max-width: 640px) {
+        .stats { grid-template-columns: 1fr 1fr; }
+        .grid { grid-template-columns: 1fr; }
+        .hero { padding-top: 38px; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site">
+      <div class="wrap bar">
+        <a class="brand" href="/">
+          <svg width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
+            <circle cx="16" cy="16" r="8.5" fill="none" stroke="currentColor" stroke-width="2" />
+            <path d="M16 3v6M16 23v6M3 16h6M23 16h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <circle cx="16" cy="16" r="1.6" fill="currentColor" />
+          </svg>
+          PUBG 战术地图
+        </a>
+        <a class="cta" href="/">打开地图</a>
+      </div>
+    </header>
+
+    <div class="wrap hero">
+      <div class="kicker">GUIDE · 使用说明</div>
+      <h1>PUBG 迫击炮测距与密室点位地图</h1>
+      <p class="lead">
+        在官方高清地图上点选两个位置，就能得到平面距离、迫击炮表盘读数和方位角；同时可以查看密室、地下室、载具、复活站等社区标注点位，并用 100 米网格快速报点。
+      </p>
+      <div class="stats">
+        <div class="stat"><b>9</b><span>张地图</span></div>
+        <div class="stat"><b>121–700 m</b><span>迫击炮射程</span></div>
+        <div class="stat"><b>780</b><span>社区点位</span></div>
+      </div>
+    </div>
+
+    <main class="wrap">
+      <section>
+        <h2>迫击炮怎么测</h2>
+        <ol>
+          <li>选择地图，放大到能看清目标建筑或地形。</li>
+          <li>第一次点击放置 <strong>A 点</strong>（迫击炮阵地），第二次点击放置 <strong>B 点</strong>（目标）。</li>
+          <li>读数卡会显示平面距离、方位角、网格坐标和表盘读数；拖动 A / B 可以微调。</li>
+        </ol>
+        <div class="note">
+          表盘按米显示，平地可近似直接使用平面距离；档位约每 10 米一跳。存在高低差时需手动修正：<strong>低打高加档，高打低减档</strong>。工具只计算平面距离。
+        </div>
+      </section>
+
+      <section>
+        <h2>支持的地图</h2>
+        <ul class="maps">
+          <li>艾伦格</li><li>米拉玛</li><li>泰戈</li><li>维寒迪</li><li>荣都</li><li>蒂斯顿</li><li>帕拉莫</li><li>卡拉金</li><li class="only">萨诺 · 仅测距</li>
+        </ul>
+        <p class="small">萨诺没有密室点位数据，也没有官方密室，但仍可用于测距和迫击炮换算。</p>
+      </section>
+
+      <section>
+        <h2>点位与网格</h2>
+        <div class="grid">
+          <div class="card">
+            <b>点位图层</b>
+            <p>密室、地下室、熊洞、固定刷车、车库、船只、滑翔机、复活站、加油站等，可按类型开关、搜索并点击定位。</p>
+          </div>
+          <div class="card">
+            <b>100 米网格</b>
+            <p>1 km 大格用字母 + 数字编号（如 D4），每个大格再分 10×10 个 100 米小格，方便报点和估算距离。</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>常见问题</h2>
+        <div class="faq">
+          <details open>
+            <summary>迫击炮的最大射程和最小射程是多少？</summary>
+            <p>有效水平射程为 121–700 米。低于或高于这个区间时，读数卡会提示超出射程，需要调整阵地位置。</p>
+          </details>
+          <details>
+            <summary>表盘读数等于地图距离吗？</summary>
+            <p>平地上可以近似直接使用；表盘以米为单位但档位不连续，约 10 米一跳。高低差需按“低打高加、高打低减”修正。</p>
+          </details>
+          <details>
+            <summary>为什么测出来的距离和游戏里感觉不一样？</summary>
+            <p>工具计算的是地图平面直线距离，不包含地形高度；地图版本、点位标注和点击精度也会带来误差。建议放大地图后再点选。</p>
+          </details>
+          <details>
+            <summary>密室和载具点位准确吗？</summary>
+            <p>点位来自社区标注数据集，并非官方数据，版本更新后可能有偏差，仅供战术参考。</p>
+          </details>
+          <details>
+            <summary>手机上可以用吗？</summary>
+            <p>可以。图层面板为抽屉式，读数卡在底部；建议双指放大后再点选，精度更高。</p>
+          </details>
+          <details>
+            <summary>数据多久更新一次？</summary>
+            <p>点位与地图版本相关，会随游戏更新调整。本页最后更新于 2026 年 10 月 29 日。</p>
+          </details>
+        </div>
+      </section>
+
+      <section>
+        <h2>数据来源与免责声明</h2>
+        <ul>
+          <li>底图来自 PUBG 官方 API 资源库 <a href="https://github.com/pubg/api-assets" target="_blank" rel="noopener">pubg/api-assets</a>，版权归 KRAFTON 所有。</li>
+          <li>点位数据来自社区项目 <a href="https://github.com/ziphow/pubg-map-toolkit" target="_blank" rel="noopener">ziphow/pubg-map-toolkit</a>，为人工标注。</li>
+          <li>射程数据参考官方更新公告与社区实测；表盘档位以游戏内实际显示为准。</li>
+          <li>本项目是非官方粉丝工具，与 KRAFTON 无关联，不用于商业用途。</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <p><a href="/">← 返回 PUBG 战术地图</a> · <a href="https://github.com/YimingZhanshen/pubg-tactical-map" target="_blank" rel="noopener">开源仓库</a></p>
+        <p class="small">PUBG、PLAYERUNKNOWN'S BATTLEGROUNDS 及相关地图素材为 KRAFTON, Inc. 的商标与版权。本工具仅用于非商业的战术交流。</p>
+      </div>
+    </footer>
+  </body>
+</html>

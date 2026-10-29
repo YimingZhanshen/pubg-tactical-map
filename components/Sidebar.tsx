@@ -164,7 +164,18 @@ export function Sidebar({
         </div>
       </div>
 
-      <footer className="border-t border-[var(--stroke)] px-4 py-2 text-[10px] leading-relaxed text-white/30">
+      <div className="border-t border-[var(--stroke)] px-4 py-2">
+        <a
+          href="/guide/"
+          target="_blank"
+          rel="noopener"
+          className="flex items-center justify-between text-[11px] text-[var(--muted)] transition-colors hover:text-[var(--accent)]"
+        >
+          <span>使用说明 · 迫击炮怎么测</span>
+          <span aria-hidden>→</span>
+        </a>
+      </div>
+      <footer className="px-4 pb-2 text-[10px] leading-relaxed text-white/30">
         点位来自社区标注，版本更新后可能有偏差，仅供战术参考。
       </footer>
     </div>
