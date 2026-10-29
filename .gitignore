@@ -1,0 +1,12 @@
+node_modules/
+dist/
+public/tiles/
+dev/data/hires/
+dev/data/align/
+dev/data/probe/
+*.qoder.site
+.env
+.env.*
+*.local
+.DS_Store
+dev/data/lowres/
