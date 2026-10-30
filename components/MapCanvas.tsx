@@ -122,7 +122,7 @@ export function MapCanvas(props: Props) {
     const map = mapRef.current;
     if (!map) return;
     imageRef.current?.remove();
-    const layer = L.tileLayer(`/tiles/${mapDef.slug}/{z}/{x}/{y}.webp`, {
+    const tileOptions: L.TileLayerOptions = {
       tileSize: 256,
       // Must stay at 0: the fitted view can round to tile zoom 1, which Layer treats as out of range below 1.
       minZoom: 0,
@@ -134,6 +134,12 @@ export function MapCanvas(props: Props) {
       updateWhenZooming: false,
       updateWhenIdle: true,
       className: "map-tiles",
+    };
+    const layer = L.tileLayer(`/tiles/${mapDef.slug}/{z}/{x}/{y}.webp`, tileOptions);
+    const tileAlt = `PUBG ${mapDef.zh}高清地图`;
+    layer.on("tileload", (event: L.LeafletEvent) => {
+      const tile = (event as L.LeafletEvent & { tile?: HTMLElement }).tile;
+      if (tile) (tile as HTMLImageElement).alt = tileAlt;
     });
     imageRef.current = layer.addTo(map);
     map.setMaxZoom(mapDef.maxZoom);
