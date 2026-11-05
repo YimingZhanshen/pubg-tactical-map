@@ -61,12 +61,67 @@
           "密室、载具、复活站等点位图层",
           "9 张官方高清地图"
         ],
-        "screenshot": "https://pubgmap.yimingzhanshen.cn/og-cover.jpg"
+        "screenshot": "https://pubgmap.yimingzhanshen.cn/og-cover.jpg",
+        "dateModified": "2026-10-30",
+        "publisher": {
+          "@type": "Organization",
+          "name": "PUBG Tactical Map contributors",
+          "sameAs": "https://github.com/YimingZhanshen/pubg-tactical-map"
+        }
       }
     </script>
   </head>
   <body>
     <div id="root"></div>
+
+    <main id="about">
+      <div class="seo-doc">
+        <h1 id="about-title">PUBG 迫击炮测距与密室点位地图</h1>
+        <p class="lead">
+          这是一个免费的 PUBG 战术地图工具：在官方高清地图上点选两个位置，直接得到平面距离、迫击炮表盘读数、方位角和网格坐标，
+          并查看密室、载具、复活站等社区标注点位。上方为可交互地图，本段说明无需 JavaScript 即可阅读。
+        </p>
+
+        <h2>关键数据</h2>
+        <ul>
+          <li>迫击炮有效水平射程：<strong>121–700 米</strong>；超出区间工具会直接提示。</li>
+          <li>表盘按米读数，档位不连续，约每 10 米一跳；高低差需手动修正（低打高加档、高打低减档）。</li>
+          <li>地图坐标系 8192×8192 像素，8 km 地图中 1 像素约 0.98 米；网格为 1 km 大格 + 100 m 小格。</li>
+          <li>支持 9 张地图：艾伦格、米拉玛、泰戈、维寒迪、荣都、蒂斯顿、萨诺（仅测距）、帕拉莫、卡拉金。</li>
+          <li>约 780 个社区标注点位：密室、地下室、熊洞、固定刷车、车库、船只、滑翔机、复活站、加油站等。</li>
+        </ul>
+
+        <h2>使用步骤</h2>
+        <ol>
+          <li>选择地图并放大到目标区域。</li>
+          <li>第一次点击放置 A 点（迫击炮阵地），第二次点击放置 B 点（目标）。</li>
+          <li>读数卡显示平面距离、表盘读数、方位与网格；拖动 A / B 可微调，快捷键 <code>G</code> 网格、<code>M</code> 模式、<code>Esc</code> 清空。</li>
+        </ol>
+
+        <h2>常见问题</h2>
+        <h3>表盘读数等于地图距离吗？</h3>
+        <p>平地上可以近似直接使用；工具只计算平面距离，不含地形高低差。</p>
+        <h3>密室和载具点位准确吗？</h3>
+        <p>点位来自社区标注数据集，不是官方数据，版本更新后可能有偏差，仅供战术参考。</p>
+        <h3>萨诺有密室吗？</h3>
+        <p>没有。萨诺在本工具中标为“仅测距”，仍可用于距离与迫击炮换算。</p>
+
+        <h2>延伸阅读</h2>
+        <p>
+          <a href="/guide">完整使用说明与常见问题</a> ·
+          <a href="/guide#data">数据来源与免责声明</a> ·
+          <a href="https://github.com/YimingZhanshen/pubg-tactical-map" rel="noopener">开源仓库</a>
+        </p>
+
+        <noscript>
+          <p>
+            当前浏览器未启用 JavaScript，交互地图无法加载；本页文字说明与
+            <a href="/guide">使用说明</a> 仍可正常阅读。
+          </p>
+        </noscript>
+      </div>
+    </main>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

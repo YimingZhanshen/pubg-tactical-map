@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /tiles/
 
 Sitemap: https://pubgmap.yimingzhanshen.cn/sitemap.xml

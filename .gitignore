@@ -10,3 +10,4 @@ dev/data/probe/
 .DS_Store
 dev/data/lowres/
 .wrangler/
+dev/indexnow.key

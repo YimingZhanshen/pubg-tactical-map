@@ -49,7 +49,7 @@ export function Sidebar({
             <Crosshair size={18} />
           </span>
           <div>
-            <h1 className="text-[15px] font-bold tracking-wide text-[var(--text)]">PUBG 战术地图</h1>
+            <p className="text-[15px] font-bold tracking-wide text-[var(--text)]">PUBG 战术地图</p>
             <p className="text-[10.5px] tracking-wide text-[var(--muted)]">迫击炮测距 · 密室 · 载具点位</p>
           </div>
         </div>
@@ -173,6 +173,13 @@ export function Sidebar({
         >
           <span>使用说明 · 迫击炮怎么测</span>
           <span aria-hidden>→</span>
+        </a>
+        <a
+          href="#about"
+          className="mt-1.5 flex items-center justify-between text-[11px] text-[var(--muted)] transition-colors hover:text-[var(--accent)]"
+        >
+          <span>本页简介与常见问题</span>
+          <span aria-hidden>↓</span>
         </a>
       </div>
       <footer className="px-4 pb-2 text-[10px] leading-relaxed text-white/30">
