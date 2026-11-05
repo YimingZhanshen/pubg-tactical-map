@@ -1,0 +1,26 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: 校验交付物完整性
+        run: |
+          test -f dist/index.html
+          test -f dist/guide.html
+          test -f dist/guide/index.html
+          test -f dist/sitemap.xml
+          test -f dist/robots.txt
+          grep -q "pubgmap.yimingzhanshen.cn" dist/sitemap.xml
